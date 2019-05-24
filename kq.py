@@ -49,6 +49,9 @@ def binaryzation(image, threshold):
 
 # 打卡
 def do_kq(check_pass = False):
+    option = webdriver.ChromeOptions ()
+    # 禁止浏览器弹出警告
+    option.add_argument ('disable-infobars')
     driver = webdriver.Chrome()
     driver.get('http://kq.neusoft.com/')
 
@@ -79,7 +82,7 @@ def do_kq(check_pass = False):
 
     image = binaryzation(image, threshold=127)
 
-    code = pytesseract.image_to_string(image)
+    code = pytesseract.image_to_string(image, lang = 'eng', config = '--pms 6')
 
     print('the code is', code)
 
