@@ -1,3 +1,4 @@
+# This is a version for LocalHost
 from selenium import webdriver
 from PIL import Image
 import pytesseract
